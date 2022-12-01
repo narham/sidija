@@ -37,18 +37,11 @@ class LaporanController extends BaseController
 
         $data =  $this->Jaga->datasiswa_jaga()->where('tanggal', $tanggal)->get()->getresultarray();
         // dd($data);
-        return view('laporan/piket', [
+        return view('laporan/lap', [
             "jaga" => $data
         ]);
     }
 
-    public function listIklan()
-    {
-        $data = $this->db->table("tbl_iklan")->get()->getResult();
-        return view('list-iklan', [
-            "iklans" => $data
-        ]);
-    }
 
     function generatePDF()
     {
@@ -62,6 +55,36 @@ class LaporanController extends BaseController
         $dompdf->render();
         $dompdf->stream("laporan-piket"); //nama file pdf
 
-        return redirect()->to(base_url('list-iklan')); //arahkan ke list-iklan setelah laporan di unduh
+        return redirect()->to(base_url('admin')); //arahkan ke list-iklan setelah laporan di unduh
+    }
+
+    public function lap_makan()
+    {
+        # print Laporan Apel
+        $tanggal = date("Y-m-d");
+        $data =  $this->Jaga->datasiswa_jaga()->where('tanggal', $tanggal)->get()->getresultarray();
+        // dd($data);
+        return view('laporan/lap_makan', [
+            "jaga" => $data
+        ]);
+
+        return view('');
+    }
+
+    public function lap_apel()
+    {
+        # print laporan apel
+
+        return view('');
+    }
+
+    public function print_lap_apel()
+    {
+        // Print Laporan Apel   
+    }
+
+    public function print_lap_makan()
+    {
+        # code...
     }
 }

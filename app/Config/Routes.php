@@ -46,6 +46,7 @@ $routes->get('auth/logout', 'Auth::logout');
 $routes->get('/admin', 'AdminController::index');
 
 // Routes Siswa
+// $routes->match(['get', 'post'], 'laporan/print', 'LaporanController::generatePDF');
 $routes->get('/siswa', 'SiswaController::index');
 $routes->get('/siswa/add', 'SiswaController::add');
 $routes->get('/siswa/edit/(:num)', 'SiswaController::edit/$1');

@@ -14,6 +14,8 @@
 <h3>ABSEN Makan</h3>
 
 
+<p>Tanggal : <?= date('Y-m-d'); ?></p>
+
 
 
 
